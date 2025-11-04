@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+Global CO₂ Emissions Dashboard & Prediction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project visualizes global CO₂ emissions data and predicts future emissions using Linear Regression.
+It includes a React dashboard for visualization and a FastAPI backend for data processing and ML predictions.
 
-## Available Scripts
+Dataset used: https://www.kaggle.com/datasets/patricklford/global-co-emissions
 
-In the project directory, you can run:
+Features
 
-### `npm start`
+View historical CO₂ emission data by country
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Predict future CO₂ emissions (2025–2050)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Interactive React dashboard
 
-### `npm test`
+FastAPI backend with ML model
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Country selector & real-time API updates
 
-### `npm run build`
+Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Frontend: React, Axios, Chart.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Backend: FastAPI, Pandas, NumPy, Scikit-Learn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ML Model: Linear Regression
 
-### `npm run eject`
+Dataset: Kaggle CO₂ Global Dataset
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Setup Instructions
+Backend (FastAPI)
+cd backend
+pip install fastapi uvicorn pandas numpy scikit-learn
+uvicorn main:app --reload
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+API runs at: http://127.0.0.1:8000
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Frontend (React)
+cd frontend
+npm install
+npm start
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Runs at: http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+API Endpoints
+Endpoint	Description
+/countries	Get list of countries
+/data/{country}	Get historical CO₂ data
+/predict/{country}	Get predicted CO₂ values
+/compare/{c1,c2}	Compare multiple countries
+Notes
 
-### Code Splitting
+CSV path used in backend:
+Data_Sets/global_co2_emissions.csv
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Ensure backend is running before starting frontend
 
-### Analyzing the Bundle Size
+Predictions use simple Linear Regression for demonstration purposes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Future Improvements
 
-### Making a Progressive Web App
+Advanced forecasting models (ARIMA, LSTM)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Export charts and predictions
 
-### Advanced Configuration
+Live world map visualization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Deploy to cloud (Render / Vercel)
