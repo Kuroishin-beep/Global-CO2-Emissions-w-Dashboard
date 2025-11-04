@@ -1,6 +1,4 @@
-Understood — here is the **final README.md** version in proper Markdown formatting:
 
-````markdown
 # 🌍 Global CO₂ Emissions Dashboard & Prediction
 
 A simple data analytics project that visualizes **global CO₂ emissions** and predicts future values using **Linear Regression**.
