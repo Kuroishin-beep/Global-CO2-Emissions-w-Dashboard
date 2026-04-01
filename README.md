@@ -1,70 +1,98 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🌍 Global CO₂ Emissions Dashboard & Prediction
 
-## Available Scripts
+A simple data analytics project that visualizes **global CO₂ emissions** and predicts future values using **Linear Regression**.
 
-In the project directory, you can run:
+Dataset Source:  
+https://www.kaggle.com/datasets/patricklford/global-co-emissions
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📌 Project Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project consists of:
 
-### `npm test`
+- **React Dashboard** for visualization  
+- **FastAPI backend** for data access & ML predictions  
+- **Linear Regression model** using scikit-learn  
+- Country-based CO₂ data filtering and future prediction (2025–2050)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Historical CO₂ emission plots per country  
+- Future emission prediction (2025-2050)  
+- Country selector dropdown  
+- Live charts fetched from FastAPI  
+- Kaggle dataset integration  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+| Category | Tools / Technologies |
+|---------|----------------------|
+| **Frontend**          | ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB) ![Axios](https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=white) ![Chart.js](https://img.shields.io/badge/Chart.js-F5788D?logo=chart.js&logoColor=white) |
+| **Backend**           | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) |
+| **Libraries**         | ![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white) ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?logo=scikit-learn&logoColor=white)  |
+| **Machine Learning**  | Linear Regression |
+| **Dataset**           | Global CO₂ Emissions — Kaggle |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend (FastAPI)
 
-## Learn More
+```bash
+cd backend
+pip install fastapi uvicorn pandas numpy scikit-learn
+uvicorn main:app --reload
+````
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## 📡 API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Route                  | Description                  |
+| ---------------------- | ---------------------------- |
+| `/countries`           | Get all countries            |
+| `/data/{country}`      | Historical CO₂ data          |
+| `/predict/{country}`   | Linear regression prediction |
+| `/compare/{c1,c2,...}` | Compare multiple countries   |
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📁 CSV Path
 
-### Making a Progressive Web App
+```
+Data_Sets/global_co2_emissions.csv
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Future Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* Better forecasting (ARIMA / LSTM models)
+* Global heatmap visualization
+* Deployment to Vercel + Render
+* Add database caching
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Ensure backend runs before starting the frontend
+* Predictions are for demonstration (linear regression only)
+
+---
+
+### Goal
+
+To demonstrate **data visualization + machine learning + full-stack integration** using real-world environmental data.
+
+```
