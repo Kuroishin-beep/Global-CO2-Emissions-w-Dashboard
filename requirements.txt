@@ -1,19 +1,5 @@
-# FastAPI + ASGI server
-fastapi
-uvicorn[standard]
-
-# Data and ML
+streamlit
 pandas
 numpy
 scikit-learn
-joblib
-
-# Firebase integration
-firebase-admin
-
-# CORS for frontend-backend communication
-fastapi[all]
-
-# Environment variable management
-python-dotenv
-
+plotly
