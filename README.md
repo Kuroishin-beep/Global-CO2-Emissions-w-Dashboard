@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 # 🌍 Global CO₂ Emissions Dashboard & Prediction
 
@@ -96,3 +97,77 @@ Data_Sets/global_co2_emissions.csv
 To demonstrate **data visualization + machine learning + full-stack integration** using real-world environmental data.
 
 ```
+=======
+# 🌍 Global CO₂ Emissions Dashboard
+
+An interactive data analytics dashboard built with **Streamlit** and **Plotly** for exploring worldwide carbon dioxide emissions — historical trends, forecasts, and deep analytics.
+
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?logo=streamlit&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-5.0+-3F4F75?logo=plotly&logoColor=white)
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| **📈 Overview** | Historical CO₂ charts (line, area, bar, scatter) with YoY growth rates |
+| **⛽ Emission Sources** | Breakdown by coal, oil, gas, and cement with stacked area + pie charts |
+| **🔀 Country Comparison** | Side-by-side comparison of up to 6 countries (total + per capita) |
+| **🗺️ Global Map** | Interactive choropleth map by total CO₂, per capita, or global share |
+| **🔮 Predictions** | Linear regression forecasting to 2050 with confidence bands |
+| **🧪 Deep Analytics** | CO₂ vs GDP/population correlations, GHG composition, temperature contribution |
+| **📋 Data Explorer** | Browse, filter, and download raw data as CSV |
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/Global-CO2-Emissions-w-Dashboard.git
+cd Global-CO2-Emissions-w-Dashboard
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the dashboard
+streamlit run app.py
+```
+
+The dashboard will open at `http://localhost:8501`.
+
+## 📁 Project Structure
+
+```
+├── app.py                  # Main Streamlit router & state manager
+├── components/
+│   └── metrics.py          # Render functions for global KPI indicators
+├── utils/
+│   ├── data_loader.py      # Data ingestion and caching
+│   ├── helpers.py          # Formatting and math functions
+│   └── style.py            # Custom CSS configurations
+├── views/                  # Streamlit Multi-page application views
+│   ├── 1_Overview.py
+│   ├── 2_Emission_Sources.py
+│   ├── 3_Country_Comparison.py
+│   ├── 4_Global_Map.py
+│   ├── 5_Predictions.py
+│   ├── 6_Deep_Analytics.py
+│   └── 7_Data_Explorer.py
+├── requirements.txt        # Python dependencies
+├── .streamlit/
+│   └── config.toml         # Streamlit theme & layout tweaks
+├── Data_Sets/
+│   └── global_co2_emissions.csv  # Source dataset
+└── README.md
+```
+
+## 📊 Data Source
+
+- [Our World in Data — CO₂ and Greenhouse Gas Emissions](https://github.com/owid/co2-data)
+
+## 🛠️ Tech Stack
+
+- **Streamlit** — Web framework
+- **Plotly** — Interactive visualizations
+- **Pandas / NumPy** — Data processing
+- **Scikit-learn** — Linear regression forecasting
+>>>>>>> Stashed changes
