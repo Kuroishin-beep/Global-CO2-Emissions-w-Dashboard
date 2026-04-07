@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-
 # 🌍 Global CO₂ Emissions Dashboard & Prediction
 
 A simple data analytics project that visualizes **global CO₂ emissions** and predicts future values using **Linear Regression**.
