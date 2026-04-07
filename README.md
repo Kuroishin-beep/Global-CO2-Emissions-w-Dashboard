@@ -168,4 +168,3 @@ The dashboard will open at `http://localhost:8501`.
 - **Plotly** — Interactive visualizations
 - **Pandas / NumPy** — Data processing
 - **Scikit-learn** — Linear regression forecasting
->>>>>>> Stashed changes
