@@ -38,7 +38,7 @@ export function useData() {
   useEffect(() => {
     if (cachedData) return;
     
-    fetch('/api/data')
+    fetch('/data.json')
       .then(res => {
         if (!res.ok) throw new Error("Failed to load data");
         return res.json();

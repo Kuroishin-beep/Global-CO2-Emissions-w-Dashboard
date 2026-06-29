@@ -15,15 +15,6 @@ class InsightRequest(BaseModel):
     year: int
     co2: float
 
-@app.get("/api/data")
-def get_data():
-    # Read the data from public/data.json
-    try:
-        with open(os.path.join("public", "data.json"), "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return JSONResponse(content=data)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Data not available")
 
 @app.post("/api/insights")
 def get_insights(req: InsightRequest):
