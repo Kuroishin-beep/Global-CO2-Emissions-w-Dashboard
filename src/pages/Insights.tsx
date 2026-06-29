@@ -12,39 +12,22 @@ export default function Insights() {
     setLoading(true);
     setInsight(null);
     try {
-      // Build prompt
       const countryData = data?.[selectedCountry]?.data || [];
       const latest = countryData[countryData.length - 1];
-      const prompt = `Analyze CO2 for ${selectedCountry}. In ${latest?.year}, it was ${latest?.co2} Mt. Talk like caveman. Short. Efficient.`;
-
-      // Since we don't have a real API key in the environment to avoid exposing it,
-      // we mock the Hugging Face API call for the frontend unless the user configures VITE_HF_API_KEY.
-      // Recommended model: TinyLlama/TinyLlama-1.1B-Chat-v1.0
       
-      const apiKey = import.meta.env.VITE_HF_API_KEY;
+      const response = await fetch("/api/insights", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ 
+          country: selectedCountry, 
+          year: latest?.year || 2022, 
+          co2: latest?.co2 || 0 
+        }),
+      });
       
-      if (!apiKey) {
-        // Fallback mock caveman speech if no API key
-        setTimeout(() => {
-          let text = `${selectedCountry} make much fire in ${latest?.year}. ${latest?.co2} big smoke. Earth get hot. Must stop fire. Use sun. Use wind.`;
-          if ((latest?.co2 || 0) < 50) text = `${selectedCountry} make small fire. Only ${latest?.co2} smoke. Good. Keep air clean.`;
-          setInsight(text);
-          setLoading(false);
-        }, 1500);
-        return;
-      }
-
-      const response = await fetch(
-        "https://api-inference.huggingface.co/models/TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-        {
-          headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-          method: "POST",
-          body: JSON.stringify({ inputs: `<|system|>\nYou are caveman. Speak short.\n<|user|>\n${prompt}\n<|assistant|>` }),
-        }
-      );
-      
+      if (!response.ok) throw new Error("Failed");
       const result = await response.json();
-      setInsight(result[0]?.generated_text?.split('<|assistant|>')[1]?.trim() || "Error make thought.");
+      setInsight(result.insight || "Error make thought.");
     } catch {
       setInsight("Brain hurt. No think now.");
     } finally {
@@ -72,7 +55,7 @@ export default function Insights() {
       )}
       
       <div className="mt-8 text-xs text-slate-500">
-        Note: To use real Hugging Face model, add VITE_HF_API_KEY to your .env file.
+        Note: To use real AI insights, configure OPENROUTER_API_KEY in your backend environment.
       </div>
     </div>
   );
