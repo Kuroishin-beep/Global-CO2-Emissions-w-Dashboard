@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useData } from '../hooks/useData';
 import { useStore } from '../store';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
