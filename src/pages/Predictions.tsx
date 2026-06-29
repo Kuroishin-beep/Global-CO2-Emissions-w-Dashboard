@@ -13,7 +13,7 @@ export default function Predictions() {
   const recent = countryData.filter(d => d.co2 != null).slice(-20);
   
   let chartData: any[] = [];
-  let r2 = 0;
+
   
   if (recent.length > 5) {
     const n = recent.length;

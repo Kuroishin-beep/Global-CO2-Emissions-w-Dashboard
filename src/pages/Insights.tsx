@@ -45,7 +45,7 @@ export default function Insights() {
       
       const result = await response.json();
       setInsight(result[0]?.generated_text?.split('<|assistant|>')[1]?.trim() || "Error make thought.");
-    } catch (e) {
+    } catch {
       setInsight("Brain hurt. No think now.");
     } finally {
       setLoading(false);

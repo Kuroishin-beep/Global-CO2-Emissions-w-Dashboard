@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useData } from '../hooks/useData';
 import { useStore } from '../store';
-import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 export default function Overview() {
   const { data } = useData();
@@ -71,7 +71,7 @@ export default function Overview() {
             <Bar dataKey="co2_growth_prct" fill="#06b6d4">
               {
                 chartData.map((entry, index) => (
-                  <cell key={`cell-${index}`} fill={entry.co2_growth_prct && entry.co2_growth_prct < 0 ? '#10b981' : '#ef4444'} />
+                  <Cell key={`cell-${index}`} fill={entry.co2_growth_prct && entry.co2_growth_prct < 0 ? '#10b981' : '#ef4444'} />
                 ))
               }
             </Bar>
