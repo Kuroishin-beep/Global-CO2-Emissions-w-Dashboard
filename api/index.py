@@ -38,7 +38,7 @@ def get_insights(req: InsightRequest):
             headers={
                 "Authorization": f"Bearer {api_key}", 
                 "Content-Type": "application/json",
-                "HTTP-Referer": "http://localhost:5173",
+                "HTTP-Referer": "https://global-co-2-emissions-w-das-git-a54a9f-kuroishin-beeps-projects.vercel.app/overview",
                 "X-Title": "Global CO2 Dashboard"
             },
             json={
