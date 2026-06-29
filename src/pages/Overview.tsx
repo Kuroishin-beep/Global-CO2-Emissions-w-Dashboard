@@ -71,7 +71,7 @@ export default function Overview() {
             <Bar dataKey="co2_growth_prct" fill="#06b6d4">
               {
                 chartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.co2_growth_prct && entry.co2_growth_prct < 0 ? '#10b981' : '#ef4444'} />
+                  <Cell key={`cell-${index}`} fill={(entry.co2_growth_prct ?? 0) < 0 ? '#10b981' : '#ef4444'} />
                 ))
               }
             </Bar>
