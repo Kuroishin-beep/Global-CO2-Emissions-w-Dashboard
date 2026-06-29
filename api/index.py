@@ -1,8 +1,5 @@
 import os
 import json
-from dotenv import load_dotenv
-
-load_dotenv()
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -14,6 +11,15 @@ class InsightRequest(BaseModel):
     country: str
     year: int
     co2: float
+
+
+@app.get("/api/health")
+def health():
+    key = os.environ.get("OPENROUTER_API_KEY")
+    return {
+        "key_present": key is not None,
+        "key_prefix": key[:8] + "..." if key else None
+    }
 
 
 @app.post("/api/insights")
@@ -28,6 +34,7 @@ def get_insights(req: InsightRequest):
     try:
         response = requests.post(
             "https://openrouter.ai/api/v1/chat/completions",
+            timeout=8,
             headers={
                 "Authorization": f"Bearer {api_key}", 
                 "Content-Type": "application/json",
@@ -43,13 +50,14 @@ def get_insights(req: InsightRequest):
             }
         )
         
-        # Will raise an exception for 4XX/5XX errors
         response.raise_for_status() 
         
         result = response.json()
         insight = result.get("choices", [{}])[0].get("message", {}).get("content", "Error generating insight.")
         return {"insight": insight}
         
+    except requests.exceptions.Timeout:
+        raise HTTPException(status_code=504, detail="Request to AI service timed out.")
     except requests.exceptions.HTTPError as e:
         error_details = e.response.text if e.response else str(e)
         print(f"OpenRouter API Error: {error_details}")
