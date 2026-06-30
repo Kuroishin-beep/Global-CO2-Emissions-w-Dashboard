@@ -93,7 +93,7 @@ def health():
         "key_prefix": key[:8] + "..." if key else None
     }
 
-
+print("DEPLOY_MARKER_v2")
 @app.post("/api/insights")
 def get_insights(req: InsightRequest):
     prompt = f"Analyze CO2 for {req.country}. In {req.year}, it was {req.co2} Mt."
